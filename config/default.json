@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://admin:admin@cluster0-4s5ad.mongodb.net/admin?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://jerry:jerry@picfolio-4s5ad.mongodb.net/picfolio?retryWrites=true&w=majority",
+  "tokenSecret": "temporarysecret"
 }
