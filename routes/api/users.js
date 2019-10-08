@@ -12,7 +12,7 @@ const router = express.Router();
 // @route    POST api/users
 // @desc     Register a user
 // @access   Public
-// Header body: JSON { name: '', email: '', password: '' }
+// Header body: JSON { "name": '', "email": '', "password": '' }
 router.post(
   '/',
   [
