@@ -1,8 +1,24 @@
 const express = require('express');
-const connectToDB = require('./config/db');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
+
+const connectToDB = async () => {
+  try {
+    await mongoose.connect("mongodb://localhost/picfolio", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    });
+    console.log('Connected to MongoDB Server...');
+  } catch (err) {
+    console.error(err.message);
+
+    process.exit(1);
+  }
+};
 
 // Connect to Database
 connectToDB();
