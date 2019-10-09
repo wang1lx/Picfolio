@@ -1,4 +1,4 @@
-#Picfolio
+# Picfolio
 ----
 
 **Installation Instructions (Running Backend Only)**
