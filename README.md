@@ -1,5 +1,4 @@
 # Picfolio
-----
 
 **Installation Instructions (Running Backend Only)**
 1. git clone this repo
@@ -16,3 +15,7 @@
 3. Run `mongod` (in any directory) to open a local mongoDB instance
 4. cd to picfolio root directory
 5. Run `npm run test` in picfolio root directory
+
+
+**Misc Documentation**
+![alt-text](https://imgur.com/a/xCxx8nQ)
