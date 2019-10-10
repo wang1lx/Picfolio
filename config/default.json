@@ -1,4 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://jerry:jerry@picfolio-4s5ad.mongodb.net/picfolio?retryWrites=true&w=majority",
-  "tokenSecret": "temporarysecret"
-}
