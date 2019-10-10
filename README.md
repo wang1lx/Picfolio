@@ -18,4 +18,5 @@
 
 
 **Misc Documentation**
-![alt-text](https://imgur.com/a/xCxx8nQ)
+-----
+![picfolio app architecture diagram](https://i.imgur.com/a4cOlNd.png)
