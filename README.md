@@ -5,6 +5,9 @@
 // Clone this repo 
 git clone https://github.com/solidsnacks/Picfolio.git
 
+// Change to Picfolio directory
+cd Picfolio
+
 // Install server dependencies in Picfolio root directory
 npm install
 
@@ -28,7 +31,7 @@ npm run server
 mongod
 
 // Run test script in Picfolio root directory
-npm run test1
+npm run test
 
 // Mocha test suite will now run
 ````
