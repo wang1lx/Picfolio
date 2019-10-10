@@ -1,22 +1,38 @@
 # Picfolio
 
-**Installation Instructions (Running Backend Only)**
-1. git clone this repo
-2. cd to picfolio root directory
-3. run `npm install` in picfolio root directory
-4. run `npm run server` in picfolio root directory
-5. Server is now running on http://localhost:5000
+## Installation Instructions (Running Backend Only)
+````javascript
+// Clone this repo 
+git clone https://github.com/solidsnacks/Picfolio.git
 
-----
+// Install server dependencies in Picfolio root directory
+npm install
 
-**Testing Instructions**
-1. Make sure picfolio is installed as above
-2. Make sure mongoDB Server is installed on local machine
-3. Run `mongod` (in any directory) to open a local mongoDB instance
-4. cd to picfolio root directory
-5. Run `npm run test` in picfolio root directory
+// Create your own /config/default.json file
+// Note: mongoURI can be for remote database or local mongoDB instance
+{
+  mongoURI: 'YOUR_MONGO_URI',
+  tokenSecret: 'SOME_TOKEN_SECRET'
+}
+
+// Run Express Server, server will run on http://localhost:5000
+npm run server
+````
 
 
-**Misc Documentation**
+## Testing Instructions
+````javascript
+// Make sure Picfolio and MongoDB are installed
+
+// Start local MongoDB instance in any terminal directory
+mongod
+
+// Run test script in Picfolio root directory
+npm run test1
+
+// Mocha test suite will now run
+````
+
+## Misc Documentation
 -----
 ![picfolio app architecture diagram](https://i.imgur.com/a4cOlNd.png)
