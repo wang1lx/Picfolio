@@ -13,6 +13,7 @@ npm install
 
 // Create your own /config/default.json file
 // Note: mongoURI can be for remote database or local mongoDB instance
+// Note: tokenSecret can be any string, like "mysecret"
 {
   mongoURI: 'YOUR_MONGO_URI',
   tokenSecret: 'SOME_TOKEN_SECRET'
