@@ -9,6 +9,18 @@ const User = require('../../models/user');
 
 const router = express.Router();
 
+// @route   GET api/auth
+// @desc    Get user information
+// @access  Private
+router.get('/', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user);
+  } catch (error) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 // @route   POST api/auth
 // @desc    Authenticate user and get token
