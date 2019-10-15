@@ -9,6 +9,18 @@ const User = require('../../models/user');
 
 const router = express.Router();
 
+// @route   GET api/auth
+// @desc    Get user information
+// @access  Private
+router.get('/', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user);
+  } catch (error) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 // @route   POST api/auth
 // @desc    Authenticate user and get token
@@ -48,7 +60,11 @@ router.post(
       };
 
       // Get jwt token, expires in 1hr
-      jwt.sign(userData, config.get('tokenSecret'), { expiresIn: 3600 }, (err, token) => {
+      const tokenSecret = config.has('tokenSecret')
+        ? config.get('tokenSecret')
+        : 'mytemporarysecret';
+
+      jwt.sign(userData, tokenSecret, { expiresIn: 3600 }, (err, token) => {
         if (err) throw err;
         res.json({ token });
       });
@@ -58,6 +74,5 @@ router.post(
     }
   }
 );
-
 
 module.exports = router;

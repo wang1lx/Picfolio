@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const config = require('config');
 
 const app = express();
 
 const connectToDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost/picfolio", {
+    await mongoose.connect('mongodb://127.0.0.1/picfolio', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

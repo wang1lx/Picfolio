@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 
-const auth = require('../../middleware/auth')
+const auth = require('../../middleware/auth');
 const User = require('../../models/user');
 
 const router = express.Router();
@@ -56,7 +56,10 @@ router.post(
       };
 
       // Return jwt token, expiration in 1hr
-      jwt.sign(userData, config.get('tokenSecret'), { expiresIn: 3600 }, (err, token) => {
+      const tokenSecret = config.has('tokenSecret')
+        ? config.get('tokenSecret')
+        : 'mytemporarysecret';
+      jwt.sign(userData, tokenSecret, { expiresIn: 3600 }, (err, token) => {
         if (err) throw err;
         res.json({ token });
       });
@@ -73,7 +76,7 @@ router.post(
 router.delete('/', auth, async (req, res) => {
   try {
     await User.findOneAndRemove({ _id: req.user.id });
-  
+
     res.json({ msg: 'User Deleted' });
   } catch (err) {
     console.error(err.message);
@@ -93,7 +96,6 @@ router.get('/', async (req, res) => {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
-})
-
+});
 
 module.exports = router;

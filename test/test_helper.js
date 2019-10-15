@@ -12,8 +12,3 @@ mongoose.connection
     console.error(err.message);
   });
 
-beforeEach(done => {
-  mongoose.connection.collections.users.drop(() => {
-    done();
-  });
-});
