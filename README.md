@@ -1,3 +1,5 @@
+![Travis CI build status](https://travis-ci.com/jerrydevs/Picfolio.svg?branch=development)
+
 # Picfolio
 
 ## Installation Instructions (Running Backend Only)
