@@ -1,8 +1,8 @@
-os: windows
 language: node_js
-node_js:
-  - 12
-services: 
-  - mongodb
+node_js: "node"
+services: mongodb
+cache:
+  directories:
+    - "node_modules"
 before_script:
   - sleep 15
