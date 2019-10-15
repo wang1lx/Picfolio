@@ -10,6 +10,20 @@ chai.use(chaiHttp);
 
 describe('POST /api/users', () => {
 
+  before(done => {
+    mongoose.connection.collections.users.drop(() => {
+      done();
+    });
+  });
+  
+  afterEach(async function () {
+    const collections = await mongoose.connection.db.collections()
+  
+    for (let collection of collections) {
+      await collection.remove()
+    }
+  })
+
   const defaultUser = {
     name: 'John Smith',
     email: 'john@example.com',
