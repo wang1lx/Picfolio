@@ -61,8 +61,8 @@ router.post(
 
       // Get jwt token, expires in 1hr
       const tokenSecret = config.has('tokenSecret')
-      ? config.get('tokenSecret')
-      : 'mytemporarysecret';
+        ? config.get('tokenSecret')
+        : 'mytemporarysecret';
 
       jwt.sign(userData, tokenSecret, { expiresIn: 3600 }, (err, token) => {
         if (err) throw err;
@@ -74,6 +74,5 @@ router.post(
     }
   }
 );
-
 
 module.exports = router;

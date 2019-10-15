@@ -7,7 +7,7 @@ const app = express();
 
 const connectToDB = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1/picfolio", {
+    await mongoose.connect('mongodb://127.0.0.1/picfolio', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

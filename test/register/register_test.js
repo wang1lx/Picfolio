@@ -7,22 +7,20 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-
 describe('POST /api/users', () => {
-
   before(done => {
     mongoose.connection.collections.users.drop(() => {
       done();
     });
   });
-  
-  afterEach(async function () {
-    const collections = await mongoose.connection.db.collections()
-  
+
+  afterEach(async function() {
+    const collections = await mongoose.connection.db.collections();
+
     for (let collection of collections) {
-      await collection.remove()
+      await collection.remove();
     }
-  })
+  });
 
   const defaultUser = {
     name: 'John Smith',
@@ -39,6 +37,6 @@ describe('POST /api/users', () => {
         // res.should.have.status(200);
         res.body.should.have.property('token');
         done();
-      })
-  })
-})
+      });
+  });
+});
