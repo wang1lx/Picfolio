@@ -2,7 +2,7 @@
 
 # Picfolio
 
-## Installation Instructions (Running Backend Only)
+## Installation Instructions
 ````javascript
 // Clone this repo 
 git clone https://github.com/solidsnacks/Picfolio.git
@@ -13,6 +13,15 @@ cd Picfolio
 // Install server dependencies in Picfolio root directory
 npm install
 
+// Change into client folder
+cd client
+
+// Install client dependencies
+npm install
+
+// Go back to root directory
+cd ..
+
 // Create your own /config/default.json file
 // Note: mongoURI can be for remote database or local mongoDB instance
 // Note: tokenSecret can be any string, like "mysecret"
@@ -21,8 +30,10 @@ npm install
   tokenSecret: 'SOME_TOKEN_SECRET'
 }
 
-// Run Express Server, server will run on http://localhost:5000
-npm run server
+// Run server and client concurrently
+// server will run on http://localhost:5000
+// client will run on http://localhost:3000
+npm run dev
 ````
 
 
