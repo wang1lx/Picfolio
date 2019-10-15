@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 
-const auth = require('../../middleware/auth')
+const auth = require('../../middleware/auth');
 const User = require('../../models/user');
 
 const router = express.Router();
@@ -73,7 +73,7 @@ router.post(
 router.delete('/', auth, async (req, res) => {
   try {
     await User.findOneAndRemove({ _id: req.user.id });
-  
+
     res.json({ msg: 'User Deleted' });
   } catch (err) {
     console.error(err.message);
@@ -93,7 +93,6 @@ router.get('/', async (req, res) => {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
-})
-
+});
 
 module.exports = router;
