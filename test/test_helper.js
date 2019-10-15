@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
+const User = require('../models/user');
+
 mongoose.connect('mongodb://localhost/picfolio', {
   useNewUrlParser: true,
   useUnifiedTopology: true
