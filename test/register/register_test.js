@@ -1,11 +1,8 @@
-const assert = require('assert');
-const mongoose = require('mongoose');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../../testServer');
-const should = chai.should();
 
-const User = require('../../models/user');
+// const User = require('../../models/user');
 chai.use(chaiHttp);
 
 
