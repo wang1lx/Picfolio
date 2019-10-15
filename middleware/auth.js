@@ -12,6 +12,9 @@ module.exports = function(req, res, next) {
   }
 
   try {
+    const tokenSecret = config.has('tokenSecret')
+      ? config.get('tokenSecret')
+      : 'mytemporarysecret';
     const decode = jwt.verify(token, config.get('tokenSecret'));
 
     req.user = decode.user;
