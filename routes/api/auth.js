@@ -60,7 +60,8 @@ router.post(
       };
 
       // Get jwt token, expires in 1hr
-      jwt.sign(userData, config.get('tokenSecret'), { expiresIn: 3600 }, (err, token) => {
+      const tokenSecret = config.get('tokenSecret') || "mytemporarysecret"
+      jwt.sign(userData, tokenSecret, { expiresIn: 3600 }, (err, token) => {
         if (err) throw err;
         res.json({ token });
       });
