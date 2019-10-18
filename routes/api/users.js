@@ -98,4 +98,59 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @route   GET api/users/me
+// @desc    Get current user's profile
+// @access  Private
+router.get('/me', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+
+    if (!user) {
+      return res.status(400).json({ msg: 'There is no profile for this user' });
+    }
+
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   POST api/users/me
+// @desc    Update user's information
+// @access  Private
+router.post('/me', auth, async (req, res) => {
+  const { location, bio, youtube, facebook, twitter, instagram, linkedin } = req.body;
+
+  // Build user information object
+  const profileFields = {};
+  if (location) profileFields.location = location;
+  if (bio) profileFields.bio = bio;
+
+  // Build socials object
+  profileFields.social = {};
+  if (youtube) profileFields.social.youtube = youtube;
+  if (twitter) profileFields.social.twitter = twitter;
+  if (facebook) profileFields.social.facebook = facebook;
+  if (linkedin) profileFields.social.linkedin = linkedin;
+  if (instagram) profileFields.social.instagram = instagram;
+
+  try {
+    let user = await User.findById(req.user.id);
+
+    if (user) {
+      // Update
+      user = await User.findByIdAndUpdate(
+        req.user.id,
+        { $set: { profile: profileFields } },
+        { new: true }
+      ).select('-password');
+
+      return res.json(user);
+    }
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
 module.exports = router;

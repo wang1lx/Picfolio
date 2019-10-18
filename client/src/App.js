@@ -7,6 +7,8 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Profile from './components/layout/Profile';
+import CreateProfile from './components/profile-forms/CreateProfile';
+import EditProfile from './components/profile-forms/EditProfile';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -34,6 +36,8 @@ const App = () => {
             <Route exact path='/register' component={Register} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/profile' component={Profile} />
+            <Route exact path='/create-my-profile' component={CreateProfile} />
+            <Route exact path='/edit-my-profile' component={EditProfile} />
           </Switch>
         </Fragment>
       </Router>
