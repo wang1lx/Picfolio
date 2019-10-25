@@ -64,7 +64,7 @@ router.post(
         ? config.get('tokenSecret')
         : 'mytemporarysecret';
 
-      jwt.sign(userData, tokenSecret, { expiresIn: 3600 }, (err, token) => {
+      jwt.sign(userData, tokenSecret, { expiresIn: 1000000 }, (err, token) => {
         if (err) throw err;
         res.json({ token });
       });
