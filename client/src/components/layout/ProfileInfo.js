@@ -1,9 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const ProfileInfo = ({ profile }) => {
+  useEffect(() => {
+    setTimeout(() => {}, 1000);
+  }, []);
+
   return (
     <Fragment>
       <Link to='/edit-my-profile'>Edit Profile</Link>
@@ -12,10 +16,13 @@ const ProfileInfo = ({ profile }) => {
         <Fragment>
           {profile.location ? <p>{profile.location}</p> : null}
           {profile.bio ? <p>{profile.bio}</p> : null}
-          {typeof profile.social === Object
-            ? profile.social.map(social => {
-                return <p key={social}>{social}</p>;
-              })
+          {console.log(profile.social)}
+          {console.log(profile.social['facebook'])}
+          {profile.social 
+            ? JSON.stringify(profile.social)
+            : null}
+          {profile.services 
+            ? JSON.stringify(profile.services)
             : null}
         </Fragment>
       ) : (
