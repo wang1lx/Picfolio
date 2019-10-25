@@ -153,4 +153,34 @@ router.post('/me', auth, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+router.post('/me/services', auth, async (req, res) => {
+  const { name, description, price } = req.body;
+
+  // Build a service object
+  const service = {} 
+  if (name) service.name = name;
+  if (description) service.description = description;
+  if (price) service.price = price;
+
+  try {
+    let user = await User.findById(req.user.id);
+
+    if (user) {
+      user.profile.services.push(service);
+      await user.save();
+      // User.findByIdAndUpdate(
+      //   req.user.id,
+      //   { $push : { services: service } },
+      //   { new: true }
+      // ).select('-password');
+
+      return res.json(user);
+    }
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+  
+})
 module.exports = router;

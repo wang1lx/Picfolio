@@ -37,7 +37,22 @@ const UserSchema = new mongoose.Schema({
       instagram: {
         type: String
       }
-    }
+    },
+    services: [
+      {
+        name: {
+          type: String,
+          required: true
+        },
+        description: {
+          type: String
+        },
+        price: {
+          type: String,
+          required: true
+        }
+      }
+    ]
   },
   date: {
     type: Date,

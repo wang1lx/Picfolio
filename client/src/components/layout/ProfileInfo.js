@@ -7,6 +7,7 @@ const ProfileInfo = ({ profile }) => {
   return (
     <Fragment>
       <Link to='/edit-my-profile'>Edit Profile</Link>
+      <Link to='/add-a-service'>Add a Service</Link>
       {profile !== null ? (
         <Fragment>
           {profile.location ? <p>{profile.location}</p> : null}
