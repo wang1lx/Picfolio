@@ -16,8 +16,6 @@ const ProfileInfo = ({ profile }) => {
         <Fragment>
           {profile.location ? <p>{profile.location}</p> : null}
           {profile.bio ? <p>{profile.bio}</p> : null}
-          {console.log(profile.social)}
-          {console.log(profile.social['facebook'])}
           {profile.social 
             ? JSON.stringify(profile.social)
             : null}
