@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import UploadPhoto from '../profile-forms/UploadPhoto';
+import PhotosDisplay from './PhotosDisplay';
+
 const ProfileInfo = ({ profile }) => {
   useEffect(() => {
     setTimeout(() => {}, 1000);
@@ -22,6 +25,8 @@ const ProfileInfo = ({ profile }) => {
           {profile.services 
             ? JSON.stringify(profile.services)
             : null}
+          <PhotosDisplay />
+          <UploadPhoto />
         </Fragment>
       ) : (
         <p>Loading</p>

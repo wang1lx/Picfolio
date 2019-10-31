@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
+    "file-type": "^12.4.0",
     "moment": "^2.24.0",
+    "multer": "^1.4.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-moment": "^0.9.6",
@@ -13,6 +15,7 @@
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
+    "redux-file-upload": "0.0.19",
     "redux-form": "^8.2.6",
     "redux-thunk": "^2.3.0",
     "uuid": "^3.3.3"

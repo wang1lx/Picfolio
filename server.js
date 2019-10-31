@@ -1,6 +1,7 @@
 const express = require('express');
 const connectToDB = require('./config/db');
 const bodyParser = require('body-parser');
+const multer = require('multer');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => res.send('API is now running...'));
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/photo', require('./routes/api/photo'));
 
 const PORT = 5000;
 

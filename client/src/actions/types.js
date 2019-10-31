@@ -12,3 +12,5 @@ export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const GET_SERVICE = 'GET_SERVICE';
 export const SERVICE_ERROR = 'SERVICE_ERROR';
+export const GET_PHOTO = 'GET_PHOTO';
+export const PHOTO_ERROR = 'PHOTO_ERROR';

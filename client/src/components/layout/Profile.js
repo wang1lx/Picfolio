@@ -5,16 +5,20 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 import { getCurrentProfile } from '../../actions/user';
+import { getCurrentUserPhotos } from '../../actions/photo';
+
 import ProfileInfo from './ProfileInfo';
 
 const Profile = ({
   auth: { user },
   isAuthenticated,
   getCurrentProfile,
+  getCurrentUserPhotos,
   user: { profile }
 }) => {
   useEffect(() => {
     getCurrentProfile();
+    getCurrentUserPhotos();
   }, []);
 
   if (!isAuthenticated) {
@@ -42,6 +46,7 @@ const Profile = ({
 Profile.propTypes = {
   isAuthenticated: PropTypes.bool,
   getCurrentProfile: PropTypes.func.isRequired,
+  getCurrentUserPhotos: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -54,5 +59,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCurrentProfile }
+  { getCurrentProfile, getCurrentUserPhotos }
 )(Profile);
