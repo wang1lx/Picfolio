@@ -10,6 +10,7 @@ import Profile from './components/layout/Profile';
 import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
 import AddService from './components/profile-forms/AddService';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Redux
 import { Provider } from 'react-redux';

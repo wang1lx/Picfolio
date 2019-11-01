@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import fileType from 'file-type';
-
+import {Carousel} from 'react-bootstrap';
 const PhotosDisplay = ({ photos }) => {
   useEffect(() => {
     setTimeout(() => {}, 1000);
@@ -26,12 +26,12 @@ const PhotosDisplay = ({ photos }) => {
           // b64encoded = btoa(String.fromCharCode.apply(null, photoBuffer));
           mime = fileType(Buffer.from(photoBuffer)).mime;
           data = 'data:' + mime + ';base64,' + b64encoded;
-          return <img key={index} src={data} />;
+          return <div><img height="300" width="400" key={index} src={data} /></div>;
         })
       ) : (
         <p>Loading</p>
       )}
- 
+
     </Fragment>
   );
 };
