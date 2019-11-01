@@ -8,13 +8,14 @@ import { register } from '../../actions/auth';
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
+    username: '',
     name: '',
     email: '',
     password: '',
     passwordVerify: ''
   });
 
-  const { name, email, password, passwordVerify } = formData;
+  const { username, name, email, password, passwordVerify } = formData;
 
   const onChange = event =>
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -24,7 +25,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     if (password !== passwordVerify) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      register({ name, email, password });
+      register({ username, name, email, password });
     }
   };
 
@@ -36,6 +37,14 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <Fragment>
       <form className='form' onSubmit={event => onSubmit(event)}>
+      <input
+        type='text'
+        placeholder='Username'
+        name='username'
+        value={username}
+        onChange={event => onChange(event)}
+        required
+      />
         <input
           type='text'
           placeholder='Name'

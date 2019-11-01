@@ -2,11 +2,14 @@ const express = require('express');
 const connectToDB = require('./config/db');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const cors = require('cors');
 
 const app = express();
 
 // Connect to Database
 connectToDB();
+
+app.use(cors());
 
 app.use(express.json({ extended: false }));
 app.use(bodyParser.json());

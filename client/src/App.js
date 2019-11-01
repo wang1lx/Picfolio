@@ -10,6 +10,7 @@ import Profile from './components/layout/Profile';
 import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
 import AddService from './components/profile-forms/AddService';
+import PublicProfile from './components/layout/PublicProfile';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -40,6 +41,7 @@ const App = () => {
             <Route exact path='/create-my-profile' component={CreateProfile} />
             <Route exact path='/edit-my-profile' component={EditProfile} />
             <Route exact path='/add-a-service' component={AddService} />
+            <Route path='/profile/:handle' component={PublicProfile} />
           </Switch>
         </Fragment>
       </Router>
