@@ -5,17 +5,27 @@ import { Redirect } from 'react-router-dom';
 
 import { getViewProfile } from '../../actions/view'
 
-const PublicProfile = ({ view: { viewUser }, match: { params }, getViewProfile}) => {
+const PublicProfile = ({ view: { viewUser, loading, error }, match: { params }, getViewProfile}) => {
     useEffect(() => {
         getViewProfile(params.handle);
-        console.log(viewUser);
-    }, []);
+    }, [loading]);
 
-    return(
-        <div> 
-            <h1>heyy</h1>
-        </div>
-    );
+    if(viewUser !== null) {
+        return(
+            <div> 
+                <h1>Welcome to <i>{viewUser.name}</i>'s profile!</h1>
+            </div>
+        );
+    } else if (error !== null) {
+        return(
+            <h1>User was not found</h1>
+        )
+    }
+    else {
+        return(
+            <h1>loading...</h1>
+        )
+    }
 }
 
 PublicProfile.propTypes = {

@@ -7,29 +7,10 @@ import {
   AUTH_ERROR,
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
-  LOGOUT,
-  GET_VIEW_PROFILE,
-  PROFILE_ERROR
+  LOGOUT
 } from './types';
 
 import setAuthToken from '../utils/setAuthToken';
-
-// Get current user's profile
-export const getUserProfile = () => async dispatch => {
-  try {
-    const res = await axios.get('/api/users/profile/:username');
-
-    dispatch({
-      type: GET_VIEW_PROFILE,
-      payload: res.data
-    });
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response }
-    });
-  }
-};
 
 // Load User
 export const loadUser = () => async dispatch => {

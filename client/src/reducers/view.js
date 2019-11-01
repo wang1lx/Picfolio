@@ -18,13 +18,13 @@ export default function(state = initialState, action) {
         ...state,
         viewUser: payload,
         loading: false
-      };
+      }
       case PROFILE_ERROR:
         return {
           ...state,
           error: payload,
           loading: false
-        };
+        }
       default:
         return state;
     }
