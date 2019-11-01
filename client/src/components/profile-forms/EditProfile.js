@@ -41,7 +41,9 @@ const EditProfile = ({ createProfile, history, isAuthenticated, profile }) => {
   return (
     <Fragment>
     <h2>Edit Profile Info</h2>
-
+      <Button variant="primary" onClick={loadProfile}>
+        Auto Populate Form
+      </Button>
       <Form onSubmit={event => onSubmit(event)}>
             <Form.Group controlId="formLocation">
               <Form.Label>Location</Form.Label>
