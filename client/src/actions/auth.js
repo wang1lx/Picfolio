@@ -12,6 +12,23 @@ import {
 
 import setAuthToken from '../utils/setAuthToken';
 
+// Get current user's profile
+export const getUserProfile = () => async dispatch => {
+  try {
+    const res = await axios.get('/api/users/profile/:username');
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response }
+    });
+  }
+};
+
 // Load User
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
@@ -30,14 +47,14 @@ export const loadUser = () => async dispatch => {
 };
 
 // Register User
-export const register = ({ name, email, password }) => async dispatch => {
+export const register = ({ username, name, email, password }) => async dispatch => {
   const config = {
     headers: {
       'Content-type': 'application/json'
     }
   };
 
-  const body = JSON.stringify({ name, email, password });
+  const body = JSON.stringify({ username, name, email, password });
 
   try {
     const res = await axios.post('/api/users', body, config);

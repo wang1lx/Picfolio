@@ -22,15 +22,25 @@
   },
   "homepage": "https://github.com/solidsnacks/Picfolio#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.2",
     "config": "^3.2.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.3",
-    "nodemon": "^1.19.3"
+    "nodemon": "^1.19.3",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.2.0",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

@@ -3,17 +3,27 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-const Profile = ({ isAuthenticated }) => {
-
-    if (!isAuthenticated) {
-        return <Redirect to='/' />
+class Profile extends React.Component {
+    state = {
+      user: null
     }
 
-    return (
+    componentDidMount() {
+      const { handle } = this.props.match.params;
+      console.log(handle);
+      fetch(`http://localhost:5000/api/users/profile/${handle}`)
+      .then((user) => {
+        this.setState(() => ({ user: user}))
+      })
+    }
+
+    render() {
+      return(
         <div>
-            <h1>Profile Page</h1>
+          <h1>hello</h1>
         </div>
-    );
+      );
+    }
 };
 
 Profile.propTypes = {
