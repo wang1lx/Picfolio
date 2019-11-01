@@ -108,12 +108,15 @@ router.get('/', async (req, res) => {
 // @access   Public
 router.get('/profile/:username', async (req, res) => {
   try {
-    console.log(req.params);
-    //console.log("nahaha");
-    const user = await User.findOne({ req.params.username });
+    const { username } = req.params;
+    
+    console.log(username);//req.params.username);
+    const user = await User.findOne({ username });
     if (!user) {
+      console.log("no user");
       return res.status(400).json({ msg: 'There is no profile for this user' });
     }
+    console.log(user);
     res.send(user);
   } catch (err) {
     console.error(err.message);
