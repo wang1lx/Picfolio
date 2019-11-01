@@ -22,7 +22,7 @@ const UploadPhoto = ({ uploadPhoto, history }) => {
 
     const form = new FormData();
     form.append('myPhoto', photo.myPhoto);
-    form.append('caption', caption);
+    form.append('caption', caption.caption);
 
     console.log(photo.myPhoto);
     for (let pair of form.entries()){
@@ -48,7 +48,7 @@ const UploadPhoto = ({ uploadPhoto, history }) => {
      <Col>
           <Form.Group controlId="formCaption">
             <Form.Label>Caption</Form.Label>
-            <Form.Control type="text" name="caption" placeholder="Enter Caption" value={caption}
+            <Form.Control type="text" name="caption" placeholder="Enter Caption" value={caption.caption}
             onChange={event => onChangeCaption(event)}/>
           </Form.Group>
     </Col>

@@ -27,7 +27,7 @@ router.post('/', [auth, upload.single('myPhoto')], async (req, res) => {
     const finalPhoto = new Photo({
       photo: Buffer.from(encoded_photo, 'base64'),
       user: req.user.id,
-      caption: ''
+      caption: req.body.caption
     })
 
     await finalPhoto.save();

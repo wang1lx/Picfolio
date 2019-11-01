@@ -7,11 +7,16 @@ import {Button, Navbar, Nav, ButtonGroup} from 'react-bootstrap';
 
 const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
+  const onClickLogout = event => {
+    event.preventDefault();
+    logout();
+  }
+
   const authLinks = (
 
 <ul className="navbar-nav mr-auto">
-   <li className="nav-item" className="nav-link">
-      <a className="nav-text" onClick={logout}  href='/'>
+   <li className="nav-item nav-link">
+      <a className="nav-text" onClick={event => onClickLogout(event)}  href='/'>
         Logout
       </a>
   </li>

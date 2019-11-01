@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { setAlert } from './alert';
 
-import { GET_PHOTO, PHOTO_ERROR } from './types';
+import { GET_PHOTO, PHOTO_ERROR, GET_ALL_PHOTOS } from './types';
 
 // Upload photo for current user
 export const uploadPhoto = (formData, history) => async dispatch => {
@@ -34,7 +33,7 @@ export const getCurrentUserPhotos = () => async dispatch => {
     const res = await axios.get('/api/photo/me');
 
     dispatch({
-      type: GET_PHOTO,
+      type: GET_ALL_PHOTOS,
       payload: res.data
     });
   } catch (err) {

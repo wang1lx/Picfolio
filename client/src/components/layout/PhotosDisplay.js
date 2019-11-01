@@ -40,7 +40,7 @@ PhotosDisplay.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  photos: state.photo.photos[0]
+  photos: state.photo.photos
 });
 
 export default connect(
