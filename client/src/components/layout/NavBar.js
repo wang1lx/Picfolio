@@ -3,37 +3,50 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import {Button, Navbar, Nav, ButtonGroup} from 'react-bootstrap';
 
 const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
+
   const authLinks = (
-    <ul>
-      <li>
-        <a onClick={logout} href='/'>
-          Logout
-        </a>
-      </li>
-    </ul>
+
+<ul className="navbar-nav mr-auto">
+   <li className="nav-item" className="nav-link">
+      <a className="nav-text" onClick={logout}  href='/'>
+        Logout
+      </a>
+  </li>
+</ul>
+
   );
 
   const guestLinks = (
-    <ul>
-      <li>
-        <Link to='/register'>Register</Link>
-      </li>
-      <li>
-        <Link to='/login'>Login</Link>
-      </li>
-    </ul>
+
+<ul className="navbar-nav mr-auto"  >
+   <li className="nav-link"  >
+      <a  href='/register' className="nav-text">
+        Register
+      </a>
+  </li>
+   <li className="nav-link" >
+      <a  className="nav-text" href='/login'>
+        Login
+      </a>
+  </li>
+
+</ul>
+
+
+
   );
   return (
-    <div>
-      <nav>
-        <h2>
-          <Link to='/'>Picfolio</Link>
-        </h2>
-        {!loading && <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>}
-      </nav>
-    </div>
+
+    <Navbar className="nav-color" expand="lg"  sticky="top" variant="light">
+      <Navbar.Brand href="/"><img height="80" width="150" src="/picfolio_logo.png" className="d-inline-block align-top" alt="Picfolio logo"/></Navbar.Brand>
+      <Nav className="ml-auto" >
+           {!loading && <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>}
+      </Nav>
+    </Navbar>
+
   );
 };
 

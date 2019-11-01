@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 import { login } from '../../actions/auth';
-
+import {Button, Form} from 'react-bootstrap';
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
@@ -28,26 +28,24 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <form className='form' onSubmit={event => onSubmit(event)}>
-        <input
-          type='email'
-          placeholder='Email Address'
-          value={email}
-          onChange={event => onChange(event)}
-          name='email'
-          required
-        />
-        <input
-          type='password'
-          placeholder='Password'
-          name='password'
-          minLength='6'
-          value={password}
-          onChange={event => onChange(event)}
-          required
-        />
-        <input type='submit' value='Login' />
-      </form>
+      <h2>Login</h2>
+    <Form onSubmit={event => onSubmit(event)}>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" placeholder="Enter email"  name='email' value={email}
+            onChange={event => onChange(event)} required/>
+        </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" name="password" placeholder="Enter Password" minLength='6' value={password}
+            onChange={event => onChange(event)}/>
+          </Form.Group>
+
+          <Button variant="dark" type="submit">
+            Login
+          </Button>
+      </Form>
     </Fragment>
   );
 };

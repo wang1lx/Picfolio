@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { uploadPhoto } from '../../actions/photo';
-
+import {Button, Row, Col,Form} from 'react-bootstrap';
 const UploadPhoto = ({ uploadPhoto, history }) => {
   const [caption, setCaption] = useState('');
   const [photo, setPhoto] = useState([]);
@@ -29,31 +29,39 @@ const UploadPhoto = ({ uploadPhoto, history }) => {
       console.log(pair[0] + ' ' + pair[1]);
     }
     uploadPhoto(form, history);
-    
+
     window.location.replace('/profile');
   };
 
   return (
     <Fragment>
-      <form
-        className='form'
-        onSubmit={event => onSubmit(event)}
-      >
-        <input
-          type='file'
-          name='myPhoto'
-          onChange={event => onChangePhoto(event)}
-          required
-        />
-        <input
-          type='text'
-          placeholder='Caption'
-          name='caption'
-          value={caption}
-          onChange={event => onChangeCaption(event)}
-        />
-        <input type='submit' value='Upload' />
-      </form>
+      <h3>Upload Photo</h3>
+    <Form onSubmit={event => onSubmit(event)}>
+    <Row>
+      <Col>
+          <Form.Group controlId="formImageUpload">
+          <Form.Label>Image</Form.Label>
+            <Form.Control type="file"  accept="image/*" name='myPhoto'
+            onChange={event => onChangePhoto(event)}  required/>
+        </Form.Group>
+     </Col>
+     <Col>
+          <Form.Group controlId="formCaption">
+            <Form.Label>Caption</Form.Label>
+            <Form.Control type="text" name="caption" placeholder="Enter Caption" value={caption}
+            onChange={event => onChangeCaption(event)}/>
+          </Form.Group>
+    </Col>
+
+    </Row>
+    <Row>
+    <Col>
+          <Button variant="dark" type="submit">
+            Upload
+          </Button>
+    </Col>
+    </Row>
+      </Form>
     </Fragment>
   );
   // return (

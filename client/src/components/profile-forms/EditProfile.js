@@ -3,8 +3,8 @@ import { Redirect, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../actions/user';
-
-const EditProfile = ({ createProfile, history, isAuthenticated, profile }) => {  
+import {Button, Form} from 'react-bootstrap';
+const EditProfile = ({ createProfile, history, isAuthenticated, profile }) => {
 
   const [formData, setFormData] = useState({
     bio: '',
@@ -29,7 +29,7 @@ const EditProfile = ({ createProfile, history, isAuthenticated, profile }) => {
   };
   const { bio, location, youtube, twitter, facebook, linkedin, instagram } = formData;
 
-  const loadProfile = () => {  
+  const loadProfile = () => {
     let profileData = {
       bio: profile.bio ? profile.bio : '',
       location: profile.location ? profile.location : '',
@@ -40,60 +40,56 @@ const EditProfile = ({ createProfile, history, isAuthenticated, profile }) => {
 
   return (
     <Fragment>
-      <button onClick={loadProfile}>Load Current Profile</button>
-      <form className='form' onSubmit={event => onSubmit(event)}>
-        <input
-          type='text'
-          placeholder='location'
-          value={location}
-          onChange={event => onChange(event)}
-          name='location'
-        />
-        <input
-          type='text'
-          placeholder='bio'
-          value={bio}
-          onChange={event => onChange(event)}
-          name='bio'
-        />
-        <input
-          type='text'
-          placeholder='youtube'
-          value={youtube}
-          onChange={event => onChange(event)}
-          name='youtube'
-        />
-        <input
-          type='text'
-          placeholder='twitter'
-          value={twitter}
-          onChange={event => onChange(event)}
-          name='twitter'
-          component='input'
-        />
-        <input
-          type='text'
-          placeholder='facebook'
-          value={facebook}
-          onChange={event => onChange(event)}
-          name='facebook'
-        />
-        <input
-          type='text'
-          placeholder='linkedin'
-          value={linkedin}
-          onChange={event => onChange(event)}
-          name='linkedin'
-        />
-        <input
-          type='text'
-          placeholder='instagram'
-          value={instagram}
-          onChange={event => onChange(event)}
-          name='instagram'
-        />
-        <input type='submit' value='Submit' />
-      </form>
+    <h2>Edit Profile Info</h2>
+
+      <Form onSubmit={event => onSubmit(event)}>
+            <Form.Group controlId="formLocation">
+              <Form.Label>Location</Form.Label>
+              <Form.Control type="text" placeholder="Enter location"  name='location' value={location}
+              onChange={event => onChange(event)} required/>
+              </Form.Group>
+
+            <Form.Group controlId="formBio">
+              <Form.Label>Bio</Form.Label>
+              <Form.Control type="text" name="bio" placeholder="Enter bio" value={bio}
+              onChange={event => onChange(event)}/>
+            </Form.Group>
+
+            <Form.Group controlId="formYoutube">
+              <Form.Label>YouTube</Form.Label>
+              <Form.Control type="text" name="youtube" placeholder="Enter youtube link" value={youtube}
+              onChange={event => onChange(event)}/>
+            </Form.Group>
+
+            <Form.Group controlId="formTwitter">
+              <Form.Label>Twitter</Form.Label>
+              <Form.Control type="text" name="twitter" placeholder="Enter twitter link" value={twitter}
+              onChange={event => onChange(event)}/>
+            </Form.Group>
+
+            <Form.Group controlId="formFacebook">
+              <Form.Label>Facebook</Form.Label>
+              <Form.Control type="text" name="facebook" placeholder="Enter facebook link" value={facebook}
+              onChange={event => onChange(event)}/>
+            </Form.Group>
+
+            <Form.Group controlId="formLinkedin">
+              <Form.Label>LinkedIn</Form.Label>
+              <Form.Control type="text" name="linkedin" placeholder="Enter LinkedIn link" value={linkedin}
+              onChange={event => onChange(event)}/>
+            </Form.Group>
+
+            <Form.Group controlId="formInstagram">
+              <Form.Label>Instagram</Form.Label>
+              <Form.Control type="text" name="linkedin" placeholder="Enter Instagram link" value={instagram}
+              onChange={event => onChange(event)}/>
+            </Form.Group>
+
+            <Button variant="dark" type="submit">
+              Submit
+            </Button>
+        </Form>
+
     </Fragment>
   );
 };

@@ -27,8 +27,8 @@ const Profile = ({
 
   return (
     <Fragment>
-      <h1>Profile Page</h1>
-      <p>Welcome {user && user.name}</p>
+      <h1>Welcome {user && user.name}</h1>
+    
 
       {/* Show page depending if user has submitted profile info already */}
       {profile !== undefined ? (
