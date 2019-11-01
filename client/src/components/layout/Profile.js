@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-<<<<<<< HEAD
 import { getCurrentProfile } from '../../actions/user';
 import { getCurrentUserPhotos } from '../../actions/photo';
 
@@ -43,17 +42,6 @@ const Profile = ({
     </Fragment>
   );
 };
-=======
-class Profile extends React.Component {
-    render() {
-      return(
-        <div>
-          <h1>hello</h1>
-        </div>
-      );
-    }
-}
->>>>>>> natalie
 
 Profile.propTypes = {
   isAuthenticated: PropTypes.bool,
@@ -69,11 +57,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-<<<<<<< HEAD
 export default connect(
   mapStateToProps,
   { getCurrentProfile, getCurrentUserPhotos }
 )(Profile);
-=======
-export default connect(mapStateToProps, {})(Profile);
->>>>>>> natalie
