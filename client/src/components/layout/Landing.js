@@ -14,11 +14,13 @@ const Landing = ({ isAuthenticated }) => {
 
   return (
     <div className={styles.first_page}>
+    <div className={styles.body_container}>
       <div className={styles.main_title} >Showcase your work with Picfolio.</div>
       <div className={styles.exampleImageContainer}>
         <img width="400vw" src="/example_portfolio.png" alt="portfolio_profile" className={styles.shadow}/>
       </div>
       <div className={styles.subtitle}>Discover amazing phtographers and artists in your area</div>
+    </div>
     </div>
   );
 };

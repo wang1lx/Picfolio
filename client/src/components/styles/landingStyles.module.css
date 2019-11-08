@@ -1,8 +1,9 @@
 .first_page {
-    background-image: linear-gradient(to bottom right, rgba(117,42,120), rgba(32,129,165));
+   background-image: linear-gradient(to bottom right, rgba(117,42,120), rgba(32,129,165)), url("/bg_repeat.png");;
     width: 100vw;
     height: 92vh;
     background-repeat: no-repeat;
+    opacity: 1;
 }
 
 .main_title {
@@ -39,3 +40,10 @@
 }
 
 .shadow {-webkit-filter: drop-shadow(8px 8px 10px rgb(63, 0, 71));filter: drop-shadow(8px 8px 10px rgb(63, 0, 71));}
+
+.body_container {
+  background-image: url("/bg_repeat.png");
+  background-size: 500px 400px;
+  background-repeat: repeat-x repeat-y;
+  height:inherit;
+}
