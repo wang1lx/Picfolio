@@ -40,58 +40,52 @@ const EditProfile = ({ createProfile, history, isAuthenticated, profile }) => {
 
   return (
     <Fragment>
+    <div className="custom-div">
     <h2>Edit Profile Info</h2>
-      <Button variant="primary" onClick={loadProfile}>
-        Auto Populate Form
+      <Button className="populate-btn" onClick={loadProfile}>
+        Auto Populate
       </Button>
       <Form onSubmit={event => onSubmit(event)}>
             <Form.Group controlId="formLocation">
-              <Form.Label>Location</Form.Label>
               <Form.Control type="text" placeholder="Enter location"  name='location' value={location}
               onChange={event => onChange(event)} required/>
               </Form.Group>
 
             <Form.Group controlId="formBio">
-              <Form.Label>Bio</Form.Label>
               <Form.Control type="text" name="bio" placeholder="Enter bio" value={bio}
               onChange={event => onChange(event)}/>
             </Form.Group>
 
             <Form.Group controlId="formYoutube">
-              <Form.Label>YouTube</Form.Label>
               <Form.Control type="text" name="youtube" placeholder="Enter youtube link" value={youtube}
               onChange={event => onChange(event)}/>
             </Form.Group>
 
             <Form.Group controlId="formTwitter">
-              <Form.Label>Twitter</Form.Label>
               <Form.Control type="text" name="twitter" placeholder="Enter twitter link" value={twitter}
               onChange={event => onChange(event)}/>
             </Form.Group>
 
             <Form.Group controlId="formFacebook">
-              <Form.Label>Facebook</Form.Label>
               <Form.Control type="text" name="facebook" placeholder="Enter facebook link" value={facebook}
               onChange={event => onChange(event)}/>
             </Form.Group>
 
             <Form.Group controlId="formLinkedin">
-              <Form.Label>LinkedIn</Form.Label>
               <Form.Control type="text" name="linkedin" placeholder="Enter LinkedIn link" value={linkedin}
               onChange={event => onChange(event)}/>
             </Form.Group>
 
             <Form.Group controlId="formInstagram">
-              <Form.Label>Instagram</Form.Label>
               <Form.Control type="text" name="linkedin" placeholder="Enter Instagram link" value={instagram}
               onChange={event => onChange(event)}/>
             </Form.Group>
 
-            <Button variant="dark" type="submit">
-              Submit
+            <Button className="custom-button" type="submit">
+              Save
             </Button>
         </Form>
-
+        </div>
     </Fragment>
   );
 };

@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import styles from '../styles/navbarStyles.module.css'
 
 const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
@@ -15,9 +16,17 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <div className={styles.nav_container}>
       <Nav className="ml-auto">
+      <Nav.Link href="/">
+      Home
+      </Nav.Link>
+      <NavDropdown title="Profile Options" id="basic-nav-dropdown">
+        <NavDropdown.Item as={Link} to='/edit-my-profile'>Edit Profile</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to='add-a-service'> Add a Service</NavDropdown.Item>
+      </NavDropdown>
         <Nav.Link href="/" onClick={event => onClickLogout(event)}>
         Logout
         </Nav.Link>
+
       </Nav>
     </div>
   );

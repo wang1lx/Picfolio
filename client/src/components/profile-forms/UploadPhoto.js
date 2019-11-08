@@ -35,33 +35,31 @@ const UploadPhoto = ({ uploadPhoto, history }) => {
 
   return (
     <Fragment>
+    <div className="upload-div">
       <h3>Upload Photo</h3>
     <Form onSubmit={event => onSubmit(event)}>
     <Row>
       <Col>
           <Form.Group controlId="formImageUpload">
-          <Form.Label>Image</Form.Label>
             <Form.Control type="file"  accept="image/*" name='myPhoto'
             onChange={event => onChangePhoto(event)}  required/>
         </Form.Group>
      </Col>
      <Col>
           <Form.Group controlId="formCaption">
-            <Form.Label>Caption</Form.Label>
             <Form.Control type="text" name="caption" placeholder="Enter Caption" value={caption.caption}
             onChange={event => onChangeCaption(event)}/>
           </Form.Group>
     </Col>
-
-    </Row>
-    <Row>
     <Col>
-          <Button variant="dark" type="submit">
-            Upload
-          </Button>
+    <Button className="populate-btn" type="submit">
+      Upload
+    </Button>
     </Col>
     </Row>
+
       </Form>
+      </div>
     </Fragment>
   );
   // return (

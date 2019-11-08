@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 import { login } from '../../actions/auth';
-import {Button, Form} from 'react-bootstrap';
+import {Button, Form, Row, Col} from 'react-bootstrap';
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
@@ -28,24 +28,37 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
+    <div className="custom-div">
       <h2>Login</h2>
     <Form onSubmit={event => onSubmit(event)}>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="Enter email"  name='email' value={email}
             onChange={event => onChange(event)} required/>
         </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
             <Form.Control type="password" name="password" placeholder="Enter Password" minLength='6' value={password}
             onChange={event => onChange(event)}/>
           </Form.Group>
-
-          <Button variant="dark" type="submit">
+          <Form.Group>
+          <Row>
+          <Col>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+          <label class="form-check-label" >
+            <p>Remember me </p>
+          </label>
+        </Col>
+        <Col>
+          <p><a href=''> Forgot your password?</a></p>
+        </Col>
+        </Row>
+          </Form.Group>
+          <Button className="custom-button" type="submit">
             Login
           </Button>
       </Form>
+      <p>Not a member yet?<a href='/register'> Create your account </a></p>
+      </div>
     </Fragment>
   );
 };

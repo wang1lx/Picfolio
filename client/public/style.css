@@ -4,8 +4,12 @@
 }
 
 .upload-div {
-  background-color: #CCEFF3 !important;
+  background-color: floralwhite !important;
+  margin-top: 50px !important;
+  flex-direction: column !important;
+  align-items: center !important;
 
+  padding-left: 25px !important;
 }
 
 .nav-text{
@@ -15,12 +19,66 @@
 
   }
 
+.link{
+  text-decoration: none !important;
+}
 h1,h2,p {
 color: #752D7E !important;
+}
+
+h3 {
+color: #5B95BD !important;
+}
+.custom-div {
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 20px 250px 20px 250px !important;
+
+}
+.custom-button{
+    color: white !important;
+    background-color: #47093A !important;
+    width : 100% !important;
+    border-color: black !important;
+    position: inherit !important;
+    margin-bottom: 5px !important;
+}
+
+.populate-btn{
+    color: white !important;
+    background-color: #5B95BD !important;
+    border-color: black !important;
+    margin-bottom: 5px !important;
+}
+
+.form-inline {
+  width: 100%;
+  margin-bottom: 25px !important;
 
 }
 
-btn-color{
-  background-color: #47093A !important;
+.form-group {
+
+  width: 100% !important;
+  display: inline-block !important;
+
+
+}
+
+.input-group {
+  width: 100% !important;
+
+}
+
+.form-control {
+  width: 100% !important;
+
+}
+
+span.input-group-addon {
+  width: 100% !important;
 
 }

@@ -26,30 +26,29 @@ const AddService = ({ createUserService, history, isAuthenticated }) => {
 
   return (
     <Fragment>
-    <h1>Enter Service Information</h1>
+    <div className="custom-div">
+    <h2>Enter Service Information</h2>
     <Form onSubmit={event => onSubmit(event)}>
           <Form.Group controlId="formBasicName">
-            <Form.Label>Service</Form.Label>
             <Form.Control type="text" placeholder="Enter Service Name"  name='name' value={name}
             onChange={event => onChange(event)} required/>
         </Form.Group>
 
           <Form.Group controlId="formBasicDes">
-            <Form.Label>Description</Form.Label>
             <Form.Control type="text" name="description" placeholder="Enter a description for your service" value={description}
             onChange={event => onChange(event)}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicPrice">
-            <Form.Label>Price (CAD)</Form.Label>
             <Form.Control type="number" name="price" placeholder="Enter price of your service" min="0" value={price}
             onChange={event => onChange(event)}/>
           </Form.Group>
 
-          <Button variant="dark" type="submit">
+          <Button className="custom-button" type="submit">
             Add Service
           </Button>
       </Form>
+      </div>
     </Fragment>
 
 

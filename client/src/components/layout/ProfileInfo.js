@@ -14,13 +14,7 @@ const ProfileInfo = ({ profile }) => {
 
   return (
     <Fragment>
-    <div>
-    <ButtonGroup >
-      <Link to='/edit-my-profile'> <Button variant="outline-dark" >Edit Profile</Button></Link>
 
-      <Link to='/add-a-service'><Button variant="outline-dark" >Add a Service</Button></Link>
-    </ButtonGroup>
-    </div>
 
       {profile !== null ? (
         <Fragment>
@@ -32,9 +26,9 @@ const ProfileInfo = ({ profile }) => {
           {profile.services
             ? JSON.stringify(profile.services)
             : null}
-          <div className="upload-div">
+        
           <UploadPhoto />
-          </div>
+
           <PhotosDisplay />
 
         </Fragment>

@@ -36,44 +36,44 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
-
+    <div className="custom-div ">
       <h2>Register</h2>
       <p>Enter Your Information to Create a Profile</p>
       <Form onSubmit={event => onSubmit(event)}>
         <Form.Group controlId="formName">
-          <Form.Label>Username</Form.Label>
+
           <Form.Control type="text" placeholder="Enter Your Username" name='username' value={username}
             onChange={event => onChange(event)}/>
         </Form.Group>
 
         <Form.Group controlId="formName">
-          <Form.Label>Name</Form.Label>
           <Form.Control type="text" placeholder="Enter Your Name" name='name' value={name}
             onChange={event => onChange(event)}/>
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
+
           <Form.Control type="email" placeholder="Enter email"  name='email' value={email}
           onChange={event => onChange(event)} required/>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+
           <Form.Control type="password" name="password" placeholder="Enter Password" minLength='6' value={password}
           onChange={event => onChange(event)}/>
         </Form.Group>
 
         <Form.Group controlId="formBasicConfirmPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control name="passwordVerify" type="password" placeholder="Enter Password Again" minLength='6'
+
+          <Form.Control name="passwordVerify" type="password" placeholder="Confirm Password" minLength='6'
           value={passwordVerify}  onChange={event => onChange(event)}/>
         </Form.Group>
-        <Button variant="dark" type="submit" >
+        <Button className="custom-button" type="submit" >
           Register
         </Button>
       </Form>
-
+        <p>Already have an account?<a href='/login'> Login </a></p>
+</div>
     </Fragment>
   );
 };
