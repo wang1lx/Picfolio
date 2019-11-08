@@ -39,7 +39,7 @@ const EditProfile = ({ createProfile, history, isAuthenticated, profile }) => {
   }
 
   return (
-    <Fragment>
+    <Container>
     <h2>Edit Profile Info</h2>
       <Button variant="primary" onClick={loadProfile}>
         Auto Populate Form
@@ -92,7 +92,7 @@ const EditProfile = ({ createProfile, history, isAuthenticated, profile }) => {
             </Button>
         </Form>
 
-    </Fragment>
+    </Container>
   );
 };
 
