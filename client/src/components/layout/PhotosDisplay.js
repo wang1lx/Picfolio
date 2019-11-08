@@ -39,11 +39,20 @@ PhotosDisplay.propTypes = {
   photos: PropTypes.array
 };
 
-const mapStateToProps = state => ({
+const mapStateToPropsPrivate = state => ({
   photos: state.photo.photos
 });
 
-export default connect(
-  mapStateToProps,
+const mapStateToPropsPublic = state => ({
+  photos: state.view.viewPhoto
+})
+
+export const PhotosDisplayPrivate = connect(
+  mapStateToPropsPrivate,
+  {}
+)(PhotosDisplay);
+
+export const PhotosDisplayPublic = connect(
+  mapStateToPropsPublic,
   {}
 )(PhotosDisplay);

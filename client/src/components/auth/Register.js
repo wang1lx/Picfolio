@@ -5,7 +5,10 @@ import { Redirect } from 'react-router-dom';
 
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
-import {Button, Form} from 'react-bootstrap';
+import {Button, Form, Container} from 'react-bootstrap';
+
+import styles from '../styles/landingStyles.module.css';
+
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     username: '',
@@ -35,46 +38,46 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   }
 
   return (
-    <Fragment>
 
-      <h2>Register</h2>
-      <p>Enter Your Information to Create a Profile</p>
-      <Form onSubmit={event => onSubmit(event)}>
-        <Form.Group controlId="formName">
-          <Form.Label>Username</Form.Label>
-          <Form.Control type="text" placeholder="Enter Your Username" name='username' value={username}
+    <Container>
+        <h2>Register</h2>
+        <p>Enter Your Information to Create a Profile</p>
+        <Form onSubmit={event => onSubmit(event)}>
+          <Form.Group controlId="formName">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="text" placeholder="Enter Your Username" name='username' value={username}
+              onChange={event => onChange(event)}/>
+          </Form.Group>
+
+          <Form.Group controlId="formName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control type="text" placeholder="Enter Your Name" name='name' value={name}
+              onChange={event => onChange(event)}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" placeholder="Enter email"  name='email' value={email}
+            onChange={event => onChange(event)} required/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" name="password" placeholder="Enter Password" minLength='6' value={password}
             onChange={event => onChange(event)}/>
-        </Form.Group>
+          </Form.Group>
 
-        <Form.Group controlId="formName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter Your Name" name='name' value={name}
-            onChange={event => onChange(event)}/>
-        </Form.Group>
+          <Form.Group controlId="formBasicConfirmPassword">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control name="passwordVerify" type="password" placeholder="Enter Password Again" minLength='6'
+            value={passwordVerify}  onChange={event => onChange(event)}/>
+          </Form.Group>
+          <Button variant="dark" type="submit" >
+            Register
+          </Button>
+        </Form>
+      </Container>
 
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Enter email"  name='email' value={email}
-          onChange={event => onChange(event)} required/>
-        </Form.Group>
-
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" name="password" placeholder="Enter Password" minLength='6' value={password}
-          onChange={event => onChange(event)}/>
-        </Form.Group>
-
-        <Form.Group controlId="formBasicConfirmPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control name="passwordVerify" type="password" placeholder="Enter Password Again" minLength='6'
-          value={passwordVerify}  onChange={event => onChange(event)}/>
-        </Form.Group>
-        <Button variant="dark" type="submit" >
-          Register
-        </Button>
-      </Form>
-
-    </Fragment>
   );
 };
 

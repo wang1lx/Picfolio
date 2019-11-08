@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
 import { login } from '../../actions/auth';
-import {Button, Form} from 'react-bootstrap';
+import {Button, Form, Container} from 'react-bootstrap';
+
+import styles from '../styles/landingStyles.module.css';
+
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
@@ -27,7 +30,7 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   return (
-    <Fragment>
+    <Container>
       <h2>Login</h2>
     <Form onSubmit={event => onSubmit(event)}>
           <Form.Group controlId="formBasicEmail">
@@ -46,7 +49,7 @@ const Login = ({ login, isAuthenticated }) => {
             Login
           </Button>
       </Form>
-    </Fragment>
+    </Container>
   );
 };
 

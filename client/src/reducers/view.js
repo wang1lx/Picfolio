@@ -16,7 +16,8 @@ export default function(state = initialState, action) {
     case GET_VIEW_PROFILE:
       return {
         ...state,
-        viewUser: payload,
+        viewUser: payload.user,
+        viewPhoto: payload.photo,
         loading: false
       }
       case PROFILE_ERROR:

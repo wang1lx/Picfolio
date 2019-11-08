@@ -6,6 +6,7 @@ const { check, validationResult } = require('express-validator');
 
 const auth = require('../../middleware/auth');
 const User = require('../../models/user');
+const Photo = require('../../models/photo');
 
 const router = express.Router();
 
@@ -133,7 +134,13 @@ router.get('/profile/:username', async (req, res) => {
       return res.status(400).json({ msg: 'There is no profile for this user' });
     }
 
-    res.send(user);
+    const photos = await Photo.find({ user: user._id });
+    const responseProfile = {
+      user: user,
+      photo: photos || []
+    }
+
+    res.send(responseProfile);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
