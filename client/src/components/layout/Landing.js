@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {Button} from 'react-bootstrap';
+import styles from '../styles/landingStyles.module.css';
 
 const Landing = ({ isAuthenticated }) => {
 
@@ -13,10 +13,12 @@ const Landing = ({ isAuthenticated }) => {
   }
 
   return (
-    <div>
-
-      <h1 >Welcome to Picfolio!</h1>
-      <p>We know you've got the skills so why not show off what you have? Register now and let the world see through your lens.</p>
+    <div className={styles.first_page}>
+      <div className={styles.main_title} >Showcase your work with Picfolio.</div>
+      <div className={styles.exampleImageContainer}>
+        <img width="400vw" src="/example_portfolio.png" alt="portfolio_profile" className={styles.shadow}/>
+      </div>
+      <div className={styles.subtitle}>Discover amazing phtographers and artists in your area</div>
     </div>
   );
 };

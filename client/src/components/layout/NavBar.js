@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
-import {Button, Navbar, Nav, ButtonGroup} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
+import styles from '../styles/navbarStyles.module.css'
 
 const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
@@ -13,45 +13,33 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
   }
 
   const authLinks = (
-
-<ul className="navbar-nav mr-auto">
-   <li className="nav-item nav-link">
-      <a className="nav-text" onClick={event => onClickLogout(event)}  href='/'>
+    <div className={styles.nav_container}>
+      <Nav className="ml-auto">
+        <Nav.Link href="/" onClick={event => onClickLogout(event)}>
         Logout
-      </a>
-  </li>
-</ul>
-
+        </Nav.Link>
+      </Nav>
+    </div>
   );
 
   const guestLinks = (
-
-<ul className="navbar-nav mr-auto"  >
-   <li className="nav-link"  >
-      <a  href='/register' className="nav-text">
+    <div className={styles.nav_container}>
+      <Nav className="ml-auto">
+        <Nav.Link href="/register">
         Register
-      </a>
-  </li>
-   <li className="nav-link" >
-      <a  className="nav-text" href='/login'>
+        </Nav.Link>
+        <Nav.Link href="/login">
         Login
-      </a>
-  </li>
-
-</ul>
-
-
-
-  );
-  return (
-
-    <Navbar className="nav-color" expand="lg"  sticky="top" variant="light">
-      <Navbar.Brand href="/"><img height="80" width="150" src="/picfolio_logo.png" className="d-inline-block align-top" alt="Picfolio logo"/></Navbar.Brand>
-      <Nav className="ml-auto" >
-           {!loading && <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>}
+        </Nav.Link>
       </Nav>
-    </Navbar>
+    </div>
+  );
 
+  return (
+    <Navbar sticky="top" bg="light" variant="light">
+      <Navbar.Brand href="/"><img width="340px" src="/picfolio_logo_text.png" className={styles.brand} alt="Picfolio logo"/></Navbar.Brand>
+      {!loading && isAuthenticated ? authLinks : guestLinks}
+    </Navbar>
   );
 };
 

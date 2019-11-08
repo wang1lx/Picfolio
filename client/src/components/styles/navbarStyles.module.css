@@ -1,0 +1,11 @@
+.brand {
+    padding-left: 12vw;
+    display: inline-block;
+    align-content: center;
+}
+
+.nav_container {
+    padding-right: 12vw;
+    margin-left: auto;
+    margin-right: 0;
+}
